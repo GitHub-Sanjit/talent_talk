@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
 
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import Home from "./page";
+import Home from "./(root)/(home)/page";
 import { cn } from "@/lib/utils";
 import { RedirectToSignIn } from "@clerk/nextjs";
 
