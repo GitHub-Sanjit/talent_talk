@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
 
@@ -8,10 +7,13 @@ import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
-import { redirect } from "next/navigation";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Home from "./page";
+import { cn } from "@/lib/utils";
+import { RedirectToSignIn } from "@clerk/nextjs";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +38,11 @@ export default async function RootLayout({
   const { userId } = await auth();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-sans", inter.variable)}
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -53,7 +59,7 @@ export default async function RootLayout({
                 <main className="px-4 sm:px-6 lg:px-8">{children}</main>
               </div>
             ) : (
-              <Home></Home>
+              <RedirectToSignIn></RedirectToSignIn>
             )}
           </ThemeProvider>
 

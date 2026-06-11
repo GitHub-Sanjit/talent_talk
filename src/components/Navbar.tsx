@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import { CodeIcon } from "lucide-react";
-import { SignIn, UserButton } from "@clerk/nextjs";
+import { SignIn, SignInButton, UserButton } from "@clerk/nextjs";
 import DasboardBtn from "./DasboardBtn";
 
 function Navbar() {
@@ -15,18 +15,18 @@ function Navbar() {
         >
           <CodeIcon className="size-8 text-emerald-500" />
           <span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
-            CodeSync
+            Talent-Talk
           </span>
         </Link>
 
         {/* RIGHT SIDE - ACTIONS */}
-        {/* <SignIn> */}
+        <SignInButton>
         <div className="flex items-center space-x-4 ml-auto">
           <DasboardBtn />
           <ModeToggle />
           <UserButton />
         </div>
-        {/* </SignIn> */}
+        </SignInButton>
       </div>
     </nav>
   );
