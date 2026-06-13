@@ -73,7 +73,7 @@ export const calculateRecordingDuration = (startTime: string, endTime: string) =
     return `${duration.minutes}:${String(duration.seconds).padStart(2, "0")}`;
   }
 
-  return `${duration.seconds} seconds`;
+  return `${duration.seconds} seconds`; 
 };
 
 export const getMeetingStatus = (interview: Interview) => {
